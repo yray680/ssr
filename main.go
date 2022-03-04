@@ -15,16 +15,16 @@ import (
 )
 
 func main() {
-	envport := os.Getenv("PORT")
-	if envport==""{
-		envport = "9096"
+	export := os.Getenv("PORT")
+	if export ==""{
+		export = "9096"
 	}
 	uuid := os.Getenv("UUID")
-	path := os.Getenv("PATH")
+	path := os.Getenv("Path")
 	if !strings.HasPrefix(path,"/"){
 		path = "/"+path
 	}
-	num,_:=strconv.ParseUint(envport,10,32)
+	port,_:=strconv.ParseUint(export,10,32)
 	var settingsJson = `{
         "udp": false,
         "clients": [
@@ -39,7 +39,7 @@ func main() {
 	settingsData := json.RawMessage(settingsJson)
 	ws:=v4.TransportProtocol("ws")
 	streamConfig:=v4.StreamConfig{Network:&ws,Security: "none",WSSettings:&v4.WebSocketConfig{Path: path}}
-	inboundV4:=&v4.InboundDetourConfig{Protocol: "vmess",PortRange:&cfgcommon.PortRange{From: uint32(num), To: uint32(num)},Settings:&settingsData,StreamSetting: &streamConfig}
+	inboundV4:=&v4.InboundDetourConfig{Protocol: "vmess",PortRange:&cfgcommon.PortRange{From: uint32(port), To: uint32(port)},Settings:&settingsData,StreamSetting: &streamConfig}
 	vc:=&v4.Config{InboundConfigs:[]v4.InboundDetourConfig{*inboundV4},OutboundConfigs:[]v4.OutboundDetourConfig{{
 		Protocol:"freedom",
 	}}}
