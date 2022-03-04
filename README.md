@@ -12,7 +12,7 @@
 "settings": {
 "vnext": [
 {
-"address": "zkok123.herokuapp.com",
+"address": "xxxx.herokuapp.com",
 "port": 443,
 "users": [
 {
