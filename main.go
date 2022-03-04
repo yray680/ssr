@@ -9,9 +9,10 @@ import (
 	"github.com/v2fly/v2ray-core/v5/infra/conf/cfgcommon"
 	v4 "github.com/v2fly/v2ray-core/v5/infra/conf/v4"
 	"os"
+	"os/signal"
 	"strconv"
 	"strings"
-	"time"
+	"syscall"
 )
 
 func main() {
@@ -55,6 +56,8 @@ func main() {
 	}
 	log.Info("!!!!!!", err)
 
-	time.Sleep(time.Hour)
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, syscall.SIGBUS)
+	<-sig
 
 }
