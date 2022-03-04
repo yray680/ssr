@@ -18,16 +18,13 @@ func main() {
 	if envport==""{
 		envport = "9096"
 	}
-
-
-
-
+	uuid := os.Getenv("uuid")
 	num,_:=strconv.ParseUint(envport,10,32)
 	var settingsJson = `{
         "udp": false,
         "clients": [
           {
-            "id": "24b4b1e1-7a89-45f6-858c-242cf53b5bdc",
+            "id": "`+uuid+`",
             "alterId": 0,
             "email": "t@t.tt"
           }
