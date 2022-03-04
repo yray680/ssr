@@ -20,7 +20,7 @@ func main() {
 		export = "9096"
 	}
 	uuid := os.Getenv("UUID")
-	path := os.Getenv("Path")
+	path := os.Getenv("WSPATH")
 	if !strings.HasPrefix(path,"/"){
 		path = "/"+path
 	}
