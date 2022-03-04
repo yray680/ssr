@@ -10,6 +10,7 @@ import (
 	v4 "github.com/v2fly/v2ray-core/v5/infra/conf/v4"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -18,7 +19,11 @@ func main() {
 	if envport==""{
 		envport = "9096"
 	}
-	uuid := os.Getenv("uuid")
+	uuid := os.Getenv("UUID")
+	path := os.Getenv("PATH")
+	if !strings.HasPrefix(path,"/"){
+		path = "/"+path
+	}
 	num,_:=strconv.ParseUint(envport,10,32)
 	var settingsJson = `{
         "udp": false,
@@ -33,7 +38,7 @@ func main() {
       }`
 	settingsData := json.RawMessage(settingsJson)
 	ws:=v4.TransportProtocol("ws")
-	streamConfig:=v4.StreamConfig{Network:&ws,Security: "none",WSSettings:&v4.WebSocketConfig{Path: "/wowowowo"},HTTPSettings:&v4.HTTPConfig{Path: "/"}}
+	streamConfig:=v4.StreamConfig{Network:&ws,Security: "none",WSSettings:&v4.WebSocketConfig{Path: path}}
 	inboundV4:=&v4.InboundDetourConfig{Protocol: "vmess",PortRange:&cfgcommon.PortRange{From: uint32(num), To: uint32(num)},Settings:&settingsData,StreamSetting: &streamConfig}
 	vc:=&v4.Config{InboundConfigs:[]v4.InboundDetourConfig{*inboundV4},OutboundConfigs:[]v4.OutboundDetourConfig{{
 		Protocol:"freedom",
