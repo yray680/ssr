@@ -13,6 +13,10 @@
     "GOVERSION":{
       "description": "GOVERSION",
       "value": "1.17"
+    },
+    "alterId": {
+      "description": "alterId",
+      "value": "0"
     }
   }
 }

@@ -21,6 +21,9 @@ func main() {
 	}
 	uuid := os.Getenv("UUID")
 	path := os.Getenv("WSPATH")
+	alterId := os.Getenv("alterId")
+
+
 	if !strings.HasPrefix(path,"/"){
 		path = "/"+path
 	}
@@ -30,7 +33,7 @@ func main() {
         "clients": [
           {
             "id": "`+uuid+`",
-            "alterId": 0,
+            "alterId": `+alterId+`,
             "email": "t@t.tt"
           }
         ],
