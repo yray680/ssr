@@ -22,8 +22,7 @@ func main() {
 	uuid := os.Getenv("UUID")
 	path := os.Getenv("WSPATH")
 	alterId := os.Getenv("alterId")
-
-
+	Security := os.Getenv("Security")
 	if !strings.HasPrefix(path,"/"){
 		path = "/"+path
 	}
@@ -41,7 +40,7 @@ func main() {
       }`
 	settingsData := json.RawMessage(settingsJson)
 	ws:=v4.TransportProtocol("ws")
-	streamConfig:=v4.StreamConfig{Network:&ws,Security: "none",WSSettings:&v4.WebSocketConfig{Path: path}}
+	streamConfig:=v4.StreamConfig{Network:&ws,Security: Security,WSSettings:&v4.WebSocketConfig{Path: path}}
 	inboundV4:=&v4.InboundDetourConfig{Protocol: "vmess",PortRange:&cfgcommon.PortRange{From: uint32(port), To: uint32(port)},Settings:&settingsData,StreamSetting: &streamConfig}
 	vc:=&v4.Config{InboundConfigs:[]v4.InboundDetourConfig{*inboundV4},OutboundConfigs:[]v4.OutboundDetourConfig{{
 		Protocol:"freedom",
