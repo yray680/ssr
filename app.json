@@ -3,11 +3,11 @@
   "description": "cokeV2ray",
   "env": {
     "UUID": {
-      "description": "UUID，根据实际情况修改 生成网站 https://www.uuidgenerator.net/",
+      "description": "id，根据实际情况修改 生成网站 https://www.uuidgenerator.net/",
       "value": "24b4b1e1-7a89-45f6-858c-242cf53b5bdc"
     },
     "WSPATH": {
-      "description": "WSPATH，根据实际情况修改",
+      "description": "ws路径，根据实际情况修改",
       "value": "/wowowowo"
     },
     "GOVERSION":{
@@ -19,7 +19,7 @@
       "value": "0"
     },
     "Security": {
-      "description": "Security，其它加密方式也支持，比如aes-128-gcm | chacha20-poly1305 |  none | zero，但是https本身就是加密传输，理论上加密是徒增压力",
+      "description": "加密方式，支持aes-128-gcm | chacha20-poly1305 |  none | zero，但是https本身就是加密传输，理论上加密是徒增压力",
       "value": "none"
     }
   }
