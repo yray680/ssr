@@ -3,6 +3,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/chuccp/cokeV2ray) 
 
+部署后，访问直接页面为404，但是不影响使用
 ### 客户端
 "outbounds":
 ```json   
