@@ -48,7 +48,7 @@ addEventListener("fetch", event => {
   event.respondWith(handleRequest(event.request))
 })
 
-const urls = ['zkok123.herokuapp.com', 'uuu12323.herokuapp.com']
+const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
 let index = 0
 async function handleRequest(request) {
    let rurl = request.url
