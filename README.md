@@ -40,7 +40,9 @@
     }
   ]
 ```
-cloudflare workers 脚本，可以多部署heroku服务，轮询使用，间接的提升速度
+cloudflare workers 脚本，可以多部署heroku服务，轮询使用，间接的提升速度，添加或替换
+const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
+中的地址
 ```addEventListener("fetch", event => {
 event.respondWith(handleRequest(event.request))
 })
