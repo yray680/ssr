@@ -40,3 +40,23 @@
     }
   ]
 ```
+cloudflare workers 脚本，可以多部署heroku服务，轮询使用，间接的提升速度
+```addEventListener("fetch", event => {
+event.respondWith(handleRequest(event.request))
+})
+
+const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
+let index = 0
+async function handleRequest(request) {
+console.log(index)
+let host = urls[index]
+if(index==0){
+index = urls.length;
+}
+index--;
+let url = new URL(request.url);
+url.hostname = host;
+let request2 = new Request(url, request);
+return fetch(request2)
+}
+```
