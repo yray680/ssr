@@ -43,22 +43,29 @@
 cloudflare workers 脚本，可以多部署heroku服务，轮询使用，间接的提升速度，添加或替换
 const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
 中的地址
-```addEventListener("fetch", event => {
-event.respondWith(handleRequest(event.request))
+```
+addEventListener("fetch", event => {
+  event.respondWith(handleRequest(event.request))
 })
 
-const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
+const urls = ['zkok123.herokuapp.com', 'uuu12323.herokuapp.com']
 let index = 0
 async function handleRequest(request) {
-console.log(index)
-let host = urls[index]
-if(index==0){
-index = urls.length;
-}
-index--;
-let url = new URL(request.url);
-url.hostname = host;
-let request2 = new Request(url, request);
-return fetch(request2)
+   let rurl = request.url
+    let url = new URL(rurl);
+    console.log(url)
+   if(url.pathname=="" || url.pathname=="/"){
+         url.hostname = "www.baidu.com";
+        let request3 = new Request(url, request);
+        return fetch(request3)
+   }
+  let host = urls[index]
+  if(index==0){
+      index = urls.length;
+  }
+  index--;
+  url.hostname = host;
+  let request2 = new Request(url, request);
+  return fetch(request2)
 }
 ```
