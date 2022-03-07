@@ -47,7 +47,14 @@ func main() {
 		Protocol:"freedom",
 	}}}
 	cfg,_:=vc.Build()
+
+
+
 	install, err := core.New(cfg)
+
+
+
+
 	if err == nil {
 		err = install.Start()
 		log.Info("121212", err)
