@@ -47,22 +47,11 @@ func main() {
 		Protocol:"freedom",
 	}}}
 	cfg,_:=vc.Build()
-
-
-
 	install, err := core.New(cfg)
-
-
-
-
 	if err == nil {
 		err = install.Start()
-		log.Info("121212", err)
-	} else {
-		log.Info("5345345", err)
 	}
 	log.Info("!!!!!!", err)
-
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, syscall.SIGBUS)
 	<-sig
