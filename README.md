@@ -42,7 +42,7 @@
     }
   ]
 ```
-cloudflare workers 脚本，可以多部署heroku服务，轮询使用，间接的提升速度，添加或替换
+cloudflare workers 脚本，可以多部署heroku服务，随机使用，间接的提升速度，分散流量，添加或替换
 const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
 中的地址
 ```
@@ -50,22 +50,16 @@ addEventListener("fetch", event => {
   event.respondWith(handleRequest(event.request))
 })
 
-const urls = ['1.herokuapp.com', '2.herokuapp.com', '3.herokuapp.com']
-let index = 0
+const urls = ['zkok123.herokuapp.com', 'uuu12323.herokuapp.com','coke00001.herokuapp.com','coke00002.herokuapp.com']
 async function handleRequest(request) {
    let rurl = request.url
     let url = new URL(rurl);
-    console.log(url)
    if(url.pathname=="" || url.pathname=="/"){
          url.hostname = "www.baidu.com";
         let request3 = new Request(url, request);
         return fetch(request3)
    }
-  let host = urls[index]
-  if(index==0){
-      index = urls.length;
-  }
-  index--;
+  let host = urls[Math.floor(Math.random()*urls.length)];
   url.hostname = host;
   let request2 = new Request(url, request);
   return fetch(request2)
