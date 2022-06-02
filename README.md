@@ -5,6 +5,12 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/chuccp/cokeV2ray) 
 
+由于本GitHub地址被限制 ，使用者可以将项目fork到自己的GitHub
+
+https://dashboard.heroku.com/new?template=https://github.com/chuccp/cokeV2ray  
+
+然后将 https://github.com/chuccp/cokeV2ray 改成自己的fork后的新地址，最好将cokeV2ray改成其它名称
+
 部署后，访问直接页面为404，但是不影响使用
 ### 客户端
 "outbounds":
