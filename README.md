@@ -2,7 +2,7 @@
 
 **因为v2ray 中vmess是较为广泛的协议，支持的设备也多，个人感觉没必要弄太多协议**
 
-**有自己服务器的建议使用 https://github.com/chuccp/v2rayAuto 部署服务 **
+**有自己服务器的建议使用 https://github.com/chuccp/v2rayAuto 部署服务**
 
 ### 服务端
 
