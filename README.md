@@ -1,7 +1,12 @@
 **本项目是使用v2ray api直接封装，后续会跟随v2ray升级而升级，采用编译的方式安装，理论上被ban的概率较低**
 
 **因为v2ray 中vmess是较为广泛的协议，支持的设备也多，个人感觉没必要弄太多协议**
+
+**有自己服务器的建议使用 https://github.com/chuccp/v2rayAuto 部署
+
 ### 服务端
+
+
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/chuccp/cokeV2ray) 
 
